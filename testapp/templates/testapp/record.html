@@ -1,0 +1,34 @@
+{% extends 'testapp/base.html' %}
+
+
+  {% block content%}
+<div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-header">
+       {{customer_record}}
+      </div>
+
+      <div class="card-body">
+          <p class="card-text">
+               <strong>Email:</strong>       {{customer_record.email}}<br>
+               <strong>Address:</strong>     {{customer_record.address}}<br>
+               <strong>City:</strong>        {{customer_record.city}}<br>
+               <strong>State:</strong>       {{customer_record.state}}<br>
+               <strong>Pincode:</strong>     {{customer_record.pincode}}<br>
+               <strong>Created On:</strong>  {{customer_record.created_on}}<br>
+               <strong>ID:</strong>          {{customer_record.id}}<br>
+          </p>
+      </div>
+    </div>
+<br><br>
+    <a href="{% url 'home'%}" class="btn btn-primary">Back</a>
+
+    <a href="{% url 'update_record' customer_record.id %}" class="btn btn-warning">Update Record </a>
+    <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete</a>
+
+
+
+</div>
+
+
+  {% endblock%}
